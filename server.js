@@ -1,6 +1,7 @@
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
+import express from "express";
+import axios from "axios";
+import cors from "cors";
+import puppeteer from "puppeteer";
 
 const app = express();
 app.use(cors());
@@ -43,6 +44,9 @@ app.post("/fetch", async (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
-  console.log("CDSCO scraper running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("CDSCO scraper running on port", PORT);
 });
+
